@@ -1,7 +1,16 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
+  "/auth/register/page": "app/auth/register/page.js",
   "/page": "app/page.js",
-  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/appointments/page": "app/admin/appointments/page.js",
   "/admin/analytics/page": "app/admin/analytics/page.js",
+  "/admin/doctors/finance/page": "app/admin/doctors/finance/page.js",
+  "/admin/doctors/page": "app/admin/doctors/page.js",
   "/admin/departments/page": "app/admin/departments/page.js",
-  "/admin/doctors/finance/page": "app/admin/doctors/finance/page.js"
+  "/patient/book-appointment/page": "app/patient/book-appointment/page.js",
+  "/admin/dashboard/page": "app/admin/dashboard/page.js",
+  "/admin/patients/page": "app/admin/patients/page.js",
+  "/patient/dashboard/page": "app/patient/dashboard/page.js",
+  "/patient/profile/page": "app/patient/profile/page.js"
 }

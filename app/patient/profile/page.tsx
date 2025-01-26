@@ -17,7 +17,6 @@ import {
   Ruler,
   Pill,
   FileText,
-  Flask,
   AlertCircle,
   ChevronRight,
   Plus,
@@ -34,7 +33,15 @@ import {
   Key,
   Shield,
   UserCheck,
-  Users
+  Users,
+  User,
+  Bell,
+  Settings,
+  LogOut,
+  ChevronDown,
+  Beaker,
+  MoreVertical,
+  Check,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -229,24 +236,23 @@ const labImages: LabImage[] = [
 export default function PatientProfile() {
   const router = useRouter()
   const [isEditing, setIsEditing] = useState(false)
-  const [photoUrl, setPhotoUrl] = useState<string>('/placeholder-avatar.png')
-  const [profileData, setProfileData] = useState<ProfileData>({
-    firstName: 'John',
-    lastName: 'Doe',
-    email: 'john.doe@example.com',
-    phone: '(555) 123-4567',
-    dateOfBirth: '1990-01-01',
-    address: '123 Healthcare St, Medical City, MC 12345',
-    emergencyContact: 'Jane Doe',
-    emergencyPhone: '(555) 987-6543',
-    bloodType: 'O+',
-    allergies: 'Penicillin',
-    medications: 'None'
-  })
-  const [activeTab, setActiveTab] = useState<"overview" | "vitals" | "medications" | "labs" | "history">("overview")
+  const [activeTab, setActiveTab] = useState<'overview' | 'vitals' | 'medications' | 'labs' | 'history'>('overview')
   const [selectedImage, setSelectedImage] = useState<LabImage | null>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [labPhotos, setLabPhotos] = useState<LabImage[]>(labImages)
+  const [profileData, setProfileData] = useState<ProfileData>({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    dateOfBirth: '',
+    address: '',
+    emergencyContact: '',
+    emergencyPhone: '',
+    bloodType: '',
+    allergies: '',
+    medications: ''
+  })
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -284,10 +290,11 @@ export default function PatientProfile() {
 
   const handlePhotoUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0]
-    if (file) {
+    if (file && file.type.startsWith('image/')) {
       const reader = new FileReader()
       reader.onloadend = () => {
-        setPhotoUrl(reader.result as string)
+        // Here you would typically upload the image to your backend/storage
+        console.log('Photo uploaded:', file.name)
       }
       reader.readAsDataURL(file)
     }
