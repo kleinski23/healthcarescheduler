@@ -1,0 +1,21 @@
+{
+  "command": "rm -rf .next",
+  "explanation": "Removing the Next.js build cache",
+  "is_background": false,
+  "require_user_approval": true
+}
+
+{
+  "command": "npm run build",
+  "explanation": "Rebuilding the project", 
+  "is_background": false,
+  "require_user_approval": true
+}
+}
+
+{
+  "command": "npm run dev",
+  "explanation": "Starting the development server",
+  "is_background": false,
+  "require_user_approval": true
+} 
